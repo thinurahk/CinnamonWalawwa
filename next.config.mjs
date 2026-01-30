@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   output: 'export', // Enable static HTML export for GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa' : '', // Your repo name
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa/' : '', // Your repo name
+  basePath: isProd ? '/CinnamonWalawwa' : '',
+  assetPrefix: isProd ? '/CinnamonWalawwa/' : '',
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [

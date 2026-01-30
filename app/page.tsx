@@ -14,6 +14,7 @@ import Image from "next/image";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 // Base path for GitHub Pages deployment
+// In production this will be '/CinnamonWalawwa', in development it will be ''
 const basePath = process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa' : '';
 
 export default function CinnamonWalawwa() {
