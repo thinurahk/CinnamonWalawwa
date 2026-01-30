@@ -110,13 +110,4 @@ body {
   pointer-events: auto !important;
 }
 
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 80px; /* Adds space at bottom */
-  }
 
-  /* Or target specific container */
-  .main-content {
-    padding-bottom: 80px;
-  }
-}
