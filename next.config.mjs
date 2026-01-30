@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export', // Enable static HTML export for GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/my-app' : '', // Replace 'my-app' with your repo name
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/my-app/' : '', // Replace 'my-app' with your repo name
+  basePath: process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa' : '', // Your repo name
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa/' : '', // Your repo name
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [
