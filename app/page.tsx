@@ -55,7 +55,7 @@ export default function CinnamonWalawwa() {
     },
     {
       title: "Traditional Cooking clases",
-      image: `${basePath}/newimg/8.JPG`,
+      image: `${basePath}/newimg/8.jpg`,
     },
   ];
   const navItems = [
