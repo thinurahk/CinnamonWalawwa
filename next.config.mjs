@@ -2,8 +2,8 @@
 const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   output: 'export', // Enable static HTML export for GitHub Pages
-  basePath: isProd ? '/my-app' : '',
-  assetPrefix: isProd ? '/my-app/' : '',
+  basePath: isProd ? '/CinnamonWalawwa' : '',
+  assetPrefix: isProd ? '/CinnamonWalawwa/' : '',
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [
