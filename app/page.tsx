@@ -212,15 +212,15 @@ export default function CinnamonWalawwa() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {inclusions.map((inclusions: Inclusions) => (
+            {inclusions.map((inclusion) => (
               <div
-                key={inclusions.title}
+                key={inclusion.title}
                 className="group relative overflow-hidden"
               >
                 <div className="aspect-[3/4] relative">
                   <Image
-                    src={inclusions.image}
-                    alt={inclusions.title}
+                    src={inclusion.image}
+                    alt={inclusion.title}
                     fill
                     className="object-cover"
                   />
