@@ -13,6 +13,9 @@ import {
 import Image from "next/image";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
+// Base path for GitHub Pages deployment
+const basePath = process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa' : '';
+
 export default function CinnamonWalawwa() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -20,22 +23,22 @@ export default function CinnamonWalawwa() {
   const inclusions = [
     {
       title: "img1",
-      image: "/newimg/img1.JPG",
+      image: `${basePath}/newimg/img1.JPG`,
       link: "#inclusions",
     },
     {
       title: "img2",
-      image: "/newimg/img2.JPG",
+      image: `${basePath}/newimg/img2.JPG`,
       link: "#dining",
     },
     {
       title: "img3",
-      image: "/newimg/img20.JPG",
+      image: `${basePath}/newimg/img20.JPG`,
       link: "#kids",
     },
     {
       title: "img4",
-      image: "/newimg/img10.JPG",
+      image: `${basePath}/newimg/img10.JPG`,
       link: "#wellness",
     },
   ];
@@ -43,15 +46,15 @@ export default function CinnamonWalawwa() {
   const whatweoffer = [
     {
       title: "Spice Garden tour",
-      image: "/newimg/img9.JPG",
+      image: `${basePath}/newimg/img9.JPG`,
     },
     {
       title: "Cinnamon Experience",
-      image: "/newimg/img7.JPG",
+      image: `${basePath}/newimg/img7.JPG`,
     },
     {
       title: "Traditional Cooking clases",
-      image: "/newimg/8.JPG",
+      image: `${basePath}/newimg/8.JPG`,
     },
   ];
   const navItems = [
@@ -150,8 +153,8 @@ export default function CinnamonWalawwa() {
             className="w-full h-full object-cover"
             style={{ filter: "brightness(0.8)" }}
           >
-            <source src="/HeroVid.MOV" type="video/quicktime" />
-            <source src="/HeroVid.MOV" type="video/mp4" />
+            <source src={`${basePath}/HeroVid.MOV`} type="video/quicktime" />
+            <source src={`${basePath}/HeroVid.MOV`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           {/* Gradient Overlay for better text readability */}
@@ -309,18 +312,18 @@ export default function CinnamonWalawwa() {
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <img
-                  src="/newimg/img17.JPG"
+                  src={`${basePath}/newimg/img17.JPG`}
                   alt="Tea Plantation"
                   className="w-full h-80 object-cover"
                 />
 
                 <img
-                  src="/newimg/img11.JPG"
+                  src={`${basePath}/newimg/img11.JPG`}
                   alt="Galle Fort"
                   className="w-full h-80 object-cover"
                 />
                 <img
-                  src="/newimg/img14.JPG"
+                  src={`${basePath}/newimg/img14.JPG`}
                   alt="Wildlife"
                   className="w-full h-80 object-cover md:col-span-2"
                 />
@@ -348,7 +351,7 @@ export default function CinnamonWalawwa() {
           </div>
           <div className="mt-12">
             <img
-              src="/newimg/img18.JPG"
+              src={`${basePath}/newimg/img18.JPG`}
               alt="family"
               className="w-full h-[520px] object-cover object-center scale-90"
             />
