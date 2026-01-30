@@ -3,14 +3,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'i.postimg.cc',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "i.postimg.cc",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'aniprivateresorts.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "cinnamonwalawwa.com",
+        pathname: "/**",
       },
     ],
   },

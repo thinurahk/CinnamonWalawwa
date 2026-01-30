@@ -2,8 +2,8 @@
 
 :root {
   /* Fonts */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Lato', sans-serif;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
 
   /* Colors */
   --color-bg: #f9f8f6;
@@ -16,7 +16,7 @@
 @theme {
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
-  
+
   --color-ani-bg: var(--color-bg);
   --color-ani-text: var(--color-text);
   --color-ani-accent: var(--color-accent);
@@ -24,7 +24,7 @@
 
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
   --animate-slow-zoom: slowZoom 20s infinite alternate;
-  
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -37,8 +37,12 @@
   }
 
   @keyframes slowZoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -48,7 +52,12 @@ body {
   color: var(--color-ani-text);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
@@ -93,15 +102,21 @@ html {
   scroll-padding-top: 80px;
 }
 
-
 /* Allow interaction everywhere */
-html, body {
+html,
+body {
   user-select: text !important;
   -webkit-user-select: text !important;
+  pointer-events: auto !important;
 }
 
-/* Restrict WhatsApp widget only */
-.rwf-whatsapp,
-.rwf-whatsapp * {
-  user-select: none;
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px; /* Adds space at bottom */
+  }
+
+  /* Or target specific container */
+  .main-content {
+    padding-bottom: 80px;
+  }
 }

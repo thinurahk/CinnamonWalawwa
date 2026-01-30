@@ -59,23 +59,6 @@ export default function CinnamonWalawwa() {
     { label: "Be Inspired", id: "be-inspired" },
     { label: "Contact", id: "contact" },
   ];
-
-
-
-  // Scroll to section with navbar offset
-  // const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-  //   e.preventDefault();
-  //   const element = document.getElementById(id);
-  //   if (element) {
-  //     const navbarHeight = 80;
-  //     const elementTop = element.getBoundingClientRect().top + window.scrollY;
-  //     window.scrollTo({
-  //       top: elementTop - navbarHeight,
-  //       behavior: 'smooth'
-  //     });
-  //   }
-  // };
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -93,7 +76,6 @@ export default function CinnamonWalawwa() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="text-2xl font-light tracking-wider">
-              {/* <span className={scrolled ? 'text-gray-900' : 'text-white'}>Cinnamon Walawwa </span> */}
               <span className={scrolled ? "text-gray-900" : "text-white"}>
                 <span className="block font-bold">Cinnamon Walawwa</span>
                 <span className="block">Cooking Class</span>
@@ -105,7 +87,7 @@ export default function CinnamonWalawwa() {
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  onClick={(e) => scrollToSection(e, item.id)}
+                  // onClick={(e) => scrollToSection(e, item.id)}
                   className={`text-sm tracking-wide hover:opacity-70 transition-opacity ${
                     scrolled ? "text-gray-900" : "text-white"
                   }`}
@@ -144,7 +126,7 @@ export default function CinnamonWalawwa() {
                   href={`#${item.id}`}
                   onClick={(e) => {
                     setMobileMenuOpen(false);
-                    scrollToSection(e, item.id);
+                    // scrollToSection(e, item.id);
                   }}
                   className="block text-sm tracking-wide text-gray-900 hover:text-gray-600"
                 >
@@ -388,7 +370,7 @@ export default function CinnamonWalawwa() {
                 <p>20-minute drive from Hiriketiya Beach, </p>
                 <p>
                   {" "}
-                  45-minute drive from Mirissa, 10-minute drive from Talalla
+                  10-minute drive from Talalla, 45-minute drive from Mirissa,
                 </p>
                 <p> </p>
                 <p>
@@ -448,38 +430,40 @@ export default function CinnamonWalawwa() {
               </a>
             </div>
 
-<div style={{ width: "100%", marginTop: "20px" }}>
-<iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.166067861533!2d80.63235898248819!3d5.971854424281847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae137052cd16d55%3A0x4be4ce1b839cd2d2!2sCinnamon%20Walawwa%20Cooking%20Class!5e0!3m2!1sen!2slk!4v1769722117787!5m2!1sen!2slk" 
-  width="600" 
-  height="450" 
-  style={{ border: 0 }} 
-  allowFullScreen 
-  loading="lazy" 
-  referrerPolicy="no-referrer-when-downgrade"
-></iframe>
-</div>
+            <div style={{ width: "100%", marginTop: "20px" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.166067861533!2d80.63235898248819!3d5.971854424281847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae137052cd16d55%3A0x4be4ce1b839cd2d2!2sCinnamon%20Walawwa%20Cooking%20Class!5e0!3m2!1sen!2slk!4v1769722117787!5m2!1sen!2slk"
+                style={{
+                  width: "100%",
+                  height: "300px",
+                  border: 0,
+                  borderRadius: "8px",
+                }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
-      <div>
-        {/* <FloatingWhatsApp
-          phoneNumber="+94717012761"
-          accountName="Cinnamon Walawwa "
-          avatar="https://img.icons8.com/?size=100&id=7819&format=png&color=000000"
-          statusMessage="Hey!"
-          chatMessage="Hello! How can I help you today?"
-          placeholder="Type your message here..."
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            zIndex: 1000,
-          }}
-        /> */}
-      </div>
 
-
+      <FloatingWhatsApp
+        phoneNumber="+94717012761"
+        accountName="Cinnamon Walawwa"
+        avatar="https://img.icons8.com/?size=100&id=7819&format=png&color=000000"
+        statusMessage="Typically replies within 30 mins"
+        chatMessage="Hello! 👋 How can we help you today?"
+        darkMode={false}
+        allowClickAway={false}
+        allowEsc={true}
+        notification={true}
+        notificationSound={true}
+        style={{
+          bottom: "20px",
+          right: "20px",
+        }}
+      />
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
