@@ -14,8 +14,10 @@ import Image from "next/image";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 // Base path for GitHub Pages deployment
-// In production this will be '/CinnamonWalawwa', in development it will be ''
-const basePath = process.env.NODE_ENV === 'production' ? '/CinnamonWalawwa' : '';
+// Vercel deployments don't need a basePath (deployed at root)
+// GitHub Pages needs '/CinnamonWalawwa' basePath (deployed at subdirectory)
+const isVercel = typeof window !== 'undefined' ? window.location.hostname.includes('vercel.app') : false;
+const basePath = process.env.NODE_ENV === 'production' && !isVercel ? '/CinnamonWalawwa' : '';
 
 export default function CinnamonWalawwa() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
