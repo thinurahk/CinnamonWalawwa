@@ -42,9 +42,12 @@ export const metadata: Metadata = {
     images: [`${baseUrl}/dpimage.png`],
   },
   
-  // Additional meta tags
-  viewport: 'width=device-width, initial-scale=1',
-  robots: 'index, follow',
+};
+
+// Viewport configuration (moved from metadata)
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

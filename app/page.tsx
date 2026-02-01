@@ -13,13 +13,10 @@ import {
 import Image from "next/image";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
-// Base path for GitHub Pages deployment
-// Vercel sets NEXT_PUBLIC_VERCEL_ENV during build, so we can detect it
-// GitHub Pages needs '/CinnamonWalawwa' basePath (deployed at subdirectory)
-// Vercel deployments don't need a basePath (deployed at root)
-const isProduction = process.env.NODE_ENV === 'production';
-const isVercel = process.env.NEXT_PUBLIC_VERCEL_ENV !== undefined;
-const basePath = isProduction && !isVercel ? '/CinnamonWalawwa' : '';
+// Base path configuration
+// Only GitHub Pages needs a basePath of '/CinnamonWalawwa'
+// All other deployments (Vercel, custom domains, etc.) should use empty basePath
+const basePath = process.env.NEXT_PUBLIC_IS_GITHUB_PAGES === 'true' ? '/CinnamonWalawwa' : '';
 
 export default function CinnamonWalawwa() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

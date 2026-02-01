@@ -1,16 +1,14 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-// Vercel automatically sets VERCEL=1 and VERCEL_ENV during build
-const isVercel = process.env.VERCEL === '1' || process.env.VERCEL_ENV !== undefined;
-// Only use basePath for GitHub Pages (production but not Vercel)
-const useBasePath = isProd && !isVercel;
+// Use explicit flag for GitHub Pages deployment
+// Set GITHUB_PAGES=true when building for GitHub Pages
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
 
 const nextConfig = {
   output: 'export', // Enable static HTML export
-  basePath: useBasePath ? '/CinnamonWalawwa' : '',
-  assetPrefix: useBasePath ? '/CinnamonWalawwa/' : '',
+  basePath: isGitHubPages ? '/CinnamonWalawwa' : '',
+  assetPrefix: isGitHubPages ? '/CinnamonWalawwa/' : '',
   env: {
-    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV,
+    NEXT_PUBLIC_IS_GITHUB_PAGES: isGitHubPages ? 'true' : 'false',
   },
   images: {
     unoptimized: true, // Required for static export
