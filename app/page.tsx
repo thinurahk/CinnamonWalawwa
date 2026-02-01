@@ -152,11 +152,13 @@ export default function CinnamonWalawwa() {
             loop
             muted
             playsInline
+            preload="metadata"
+            poster={`${basePath}/newimg/img1.JPG`}
             className="w-full h-full object-cover"
             style={{ filter: "brightness(0.8)" }}
           >
-            <source src={`${basePath}/HeroVid.MOV`} type="video/quicktime" />
             <source src={`${basePath}/HeroVid.MOV`} type="video/mp4" />
+            <source src={`${basePath}/HeroVid.MOV`} type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
           {/* Gradient Overlay for better text readability */}
@@ -228,6 +230,8 @@ export default function CinnamonWalawwa() {
                     alt={inclusion.title}
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    quality={85}
                   />
                 </div>
 
@@ -260,6 +264,7 @@ export default function CinnamonWalawwa() {
                   <img
                     src={suite.image}
                     alt={suite.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -316,17 +321,20 @@ export default function CinnamonWalawwa() {
                 <img
                   src={`${basePath}/newimg/img17.JPG`}
                   alt="Tea Plantation"
+                  loading="lazy"
                   className="w-full h-80 object-cover"
                 />
 
                 <img
                   src={`${basePath}/newimg/img11.JPG`}
                   alt="Galle Fort"
+                  loading="lazy"
                   className="w-full h-80 object-cover"
                 />
                 <img
                   src={`${basePath}/newimg/img14.JPG`}
                   alt="Wildlife"
+                  loading="lazy"
                   className="w-full h-80 object-cover md:col-span-2"
                 />
               </div>
@@ -355,6 +363,7 @@ export default function CinnamonWalawwa() {
             <img
               src={`${basePath}/newimg/img18.JPG`}
               alt="family"
+              loading="lazy"
               className="w-full h-[520px] object-cover object-center scale-90"
             />
           </div>

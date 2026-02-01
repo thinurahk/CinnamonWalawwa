@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   
   // Favicon and browser icons
   icons: {
-    icon: '/favicon.png?v=2',
-    apple: '/favicon.png?v=2',
-    shortcut: '/favicon.png?v=2',
+    icon: '/dpimage.png?v=2',
+    apple: '/dpimage.png?v=2',
+    shortcut: '/dpimage.png?v=2',
   },
   
 };
