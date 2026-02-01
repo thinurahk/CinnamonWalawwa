@@ -42,6 +42,13 @@ export const metadata: Metadata = {
     images: [`${baseUrl}/dpimage.png`],
   },
   
+  // Favicon and browser icons
+  icons: {
+    icon: '/dpimage.png',
+    apple: '/dpimage.png',
+    shortcut: '/dpimage.png',
+  },
+  
 };
 
 // Viewport configuration (moved from metadata)
