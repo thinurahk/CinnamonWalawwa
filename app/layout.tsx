@@ -1,9 +1,50 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Determine the base URL for meta tags
+const isProduction = process.env.NODE_ENV === 'production';
+const isVercel = process.env.VERCEL_ENV !== undefined;
+const baseUrl = isVercel 
+  ? 'https://cinnamon-walawwa.vercel.app' 
+  : isProduction 
+    ? 'https://thinurahk.github.io/CinnamonWalawwa'
+    : 'http://localhost:3000';
+
 export const metadata: Metadata = {
-  title: "Cinnamon Walawwa",
-  description: "Cinnamon Walawwa cooking class",
+  title: "Cinnamon Walawwa - Authentic Sri Lankan Cooking Class",
+  description: "Discover the real taste of Sri Lanka! Tour a lush spice garden, sip cinnamon tea, and learn to cook traditional dishes with authentic Sri Lankan cooking classes in Dikwella.",
+  keywords: ["Sri Lankan cooking class", "Cinnamon plantation", "Dikwella", "Spice garden tour", "Traditional cooking", "Sri Lanka experience"],
+  authors: [{ name: "Cinnamon Walawwa" }],
+  
+  // Open Graph meta tags for social media sharing
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: baseUrl,
+    siteName: 'Cinnamon Walawwa',
+    title: 'Cinnamon Walawwa - Authentic Sri Lankan Cooking Class',
+    description: 'Discover the real taste of Sri Lanka! Tour a lush spice garden, sip cinnamon tea, and learn to cook traditional dishes.',
+    images: [
+      {
+        url: `${baseUrl}/dpimage.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Cinnamon Walawwa Cooking Class',
+      },
+    ],
+  },
+  
+  // Twitter Card meta tags
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cinnamon Walawwa - Authentic Sri Lankan Cooking Class',
+    description: 'Discover the real taste of Sri Lanka! Tour a lush spice garden and learn traditional cooking.',
+    images: [`${baseUrl}/dpimage.png`],
+  },
+  
+  // Additional meta tags
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
 };
 
 export default function RootLayout({
