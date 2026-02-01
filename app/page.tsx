@@ -555,6 +555,7 @@ export default function CinnamonWalawwa() {
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
             <p>© Copyright 2026, Cinnamon Walawwa</p>
+            <p>Website designed by Thinura Hewakoon</p>
           </div>
         </div>
       </footer>
