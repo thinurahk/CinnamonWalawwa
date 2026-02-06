@@ -12,11 +12,10 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
+import ReviewsSection from "@/components/ReviewsSection";
 
-// Base path configuration
-// Only GitHub Pages needs a basePath of '/CinnamonWalawwa'
-// All other deployments (Vercel, custom domains, etc.) should use empty basePath
-const basePath = process.env.NEXT_PUBLIC_IS_GITHUB_PAGES === 'true' ? '/CinnamonWalawwa' : '';
+const basePath =
+  process.env.NEXT_PUBLIC_IS_GITHUB_PAGES === "true" ? "/CinnamonWalawwa" : "";
 
 export default function CinnamonWalawwa() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -354,7 +353,7 @@ export default function CinnamonWalawwa() {
             <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
               Our family is passionate about sharing the art of Sri Lankan
               island cooking, from mastering traditional spices to the hands-on
-              fun of making kottu. We invite you into our peaceful village home
+              fun of making Food. We invite you into our peaceful village home
               to explore our cinnamon plantation, enjoy a meal together, and
               leave with the recipes and skills to cook like a local.
             </p>
@@ -364,11 +363,14 @@ export default function CinnamonWalawwa() {
               src={`${basePath}/newimg/img18.JPG`}
               alt="family"
               loading="lazy"
-              className="w-full h-[520px] object-cover object-center scale-90"
+              className="w-full h-[300px] md:h-[520px] object-contain md:object-cover object-center md:scale-90"
             />
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <ReviewsSection />
 
       {/* Location Section */}
       <section id="contact" className="scroll-mt-24 py-20 px-4 bg-gray-50">
@@ -536,23 +538,18 @@ export default function CinnamonWalawwa() {
               <h4 className="text-sm tracking-wider mb-4">Follow Us</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="https://www.instagram.com/cinnamonwalawwa?igsh=MXY0bW4xb296NzBpdg%3D%3D&utm_source=qr" className="hover:text-white transition-colors">
                     Instergram{" "}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="https://www.facebook.com/share/1BgNpjCAuG/?mibextid=wwXIfr" className="hover:text-white transition-colors">
                     Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="https://www.tiktok.com/@cinnamon_walawwa?_r=1&_t=ZS-93Tnc4M6qIv" className="hover:text-white transition-colors">
                     Tiktok
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    TripAdvisor
                   </a>
                 </li>
               </ul>
