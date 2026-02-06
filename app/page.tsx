@@ -152,7 +152,7 @@ export default function CinnamonWalawwa() {
             muted
             playsInline
             preload="metadata"
-            poster={`${basePath}/newimg/img1.JPG`}
+            poster={`${basePath}/newimg/img22.JPG`}
             className="w-full h-full object-cover"
             style={{ filter: "brightness(0.8)" }}
           >
