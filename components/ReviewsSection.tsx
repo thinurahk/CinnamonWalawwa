@@ -87,7 +87,7 @@ export default function ReviewsSection() {
     );
   };
 
-  const ReviewCard = ({ review }: { review: typeof reviews[0] }) => {
+  const ReviewCard = ({ review }: { review: typeof featuredTestimonials[0] }) => {
     return (
       <div className="glass-card group">
         <StarRating rating={review.rating} />
