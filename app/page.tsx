@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import ReviewsSection from "@/components/ReviewsSection";
+import { Analytics } from "@vercel/analytics/next"
 
 const basePath =
   process.env.NEXT_PUBLIC_IS_GITHUB_PAGES === "true" ? "/CinnamonWalawwa" : "";
