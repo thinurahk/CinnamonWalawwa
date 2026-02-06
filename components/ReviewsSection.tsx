@@ -98,7 +98,7 @@ export default function ReviewsSection() {
         <div className="flex items-center gap-3 mt-auto">
           <div>
             <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{review.name}</h4>
-            <p className="text-gray-500 text-xs sm:text-sm">{review.role}</p>
+            <p className="text-gray-500 text-xs sm:text-sm">{review.location}</p>
           </div>
         </div>
       </div>
