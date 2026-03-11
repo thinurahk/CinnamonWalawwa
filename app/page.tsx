@@ -144,20 +144,38 @@ export default function CinnamonWalawwa() {
       </nav>
 
       {/* Hero Section with Looping Video */}
+      {/*
+        LCP Optimization: preload the poster image so it appears immediately
+        while the video loads. The <link> tag below tells browsers to fetch
+        the poster before the parser discovers the <video> element.
+      */}
+      <link
+        rel="preload"
+        as="image"
+        href={`${basePath}/newimg/img22.JPG`}
+        fetchPriority="high"
+      />
       <section className="relative h-screen overflow-hidden">
         {/* Video Background */}
-        <div className="absolute inset-0 pointer-events-none ">
+        <div className="absolute inset-0 pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
+            // 'none' prevents downloading the full video until it can play;
+            // the poster image is shown immediately (our LCP element).
+            preload="none"
             poster={`${basePath}/newimg/img22.JPG`}
             className="w-full h-full object-cover"
             style={{ filter: "brightness(0.8)" }}
           >
-            <source src={`${basePath}/HeroVid.MOV`} type="video/mp4" />
+            {/*
+              mp4 source first — if you convert HeroVid.MOV to HeroVid.mp4
+              (H.264, ~10-20 MB via HandBrake/ffmpeg) it will load here.
+              The .MOV fallback stays for now.
+            */}
+            <source src={`${basePath}/HeroVid.mp4`} type="video/mp4" />
             <source src={`${basePath}/HeroVid.MOV`} type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
@@ -219,7 +237,7 @@ export default function CinnamonWalawwa() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {inclusions.map((inclusion) => (
+            {inclusions.map((inclusion, index) => (
               <div
                 key={inclusion.title}
                 className="group relative overflow-hidden"
@@ -230,8 +248,12 @@ export default function CinnamonWalawwa() {
                     alt={inclusion.title}
                     fill
                     className="object-cover"
-                    loading="lazy"
+                    // First image is visible above the fold on most screens — load eagerly
+                    // Remaining images are below the fold on mobile — load lazily
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : "lazy"}
                     quality={85}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
 
@@ -260,12 +282,16 @@ export default function CinnamonWalawwa() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whatweoffer.map((suite, index) => (
               <div key={index} className="group cursor-pointer">
+                {/* relative + aspect-ratio wrapper required for next/image fill */}
                 <div className="relative overflow-hidden mb-4 aspect-[4/3]">
-                  <img
+                  <Image
                     src={suite.image}
                     alt={suite.title}
+                    fill
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <h3 className="text-xl font-light tracking-wide text-center group-hover:text-gray-600 transition-colors">
@@ -318,25 +344,43 @@ export default function CinnamonWalawwa() {
 
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <img
-                  src={`${basePath}/newimg/img17.JPG`}
-                  alt="Tea Plantation"
-                  loading="lazy"
-                  className="w-full h-80 object-cover"
-                />
+                {/* Top row: two images side by side on md+ */}
+                <div className="relative h-80">
+                  <Image
+                    src={`${basePath}/newimg/img17.JPG`}
+                    alt="Spice garden at Cinnamon Walawwa"
+                    fill
+                    loading="lazy"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
 
-                <img
-                  src={`${basePath}/newimg/img11.JPG`}
-                  alt="Galle Fort"
-                  loading="lazy"
-                  className="w-full h-80 object-cover"
-                />
-                <img
-                  src={`${basePath}/newimg/img14.JPG`}
-                  alt="Wildlife"
-                  loading="lazy"
-                  className="w-full h-80 object-cover md:col-span-2"
-                />
+                <div className="relative h-80">
+                  <Image
+                    src={`${basePath}/newimg/img11.JPG`}
+                    alt="Cooking class experience"
+                    fill
+                    loading="lazy"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Full-width bottom image */}
+                <div className="relative h-80 md:col-span-2">
+                  <Image
+                    src={`${basePath}/newimg/img14.JPG`}
+                    alt="Sri Lankan culinary experience"
+                    fill
+                    loading="lazy"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -360,12 +404,18 @@ export default function CinnamonWalawwa() {
             </p>
           </div>
           <div className="mt-12">
-            <img
-              src={`${basePath}/newimg/img18.JPG`}
-              alt="family"
-              loading="lazy"
-              className="w-full h-[300px] md:h-[520px] object-contain md:object-cover object-center md:scale-90"
-            />
+            {/* Relative wrapper with explicit heights to contain next/image fill */}
+            <div className="relative w-full h-[300px] md:h-[520px]">
+              <Image
+                src={`${basePath}/newimg/img18.JPG`}
+                alt="The Cinnamon Walawwa family"
+                fill
+                loading="lazy"
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="object-contain md:object-cover object-center md:scale-90"
+              />
+            </div>
           </div>
         </div>
       </section>
